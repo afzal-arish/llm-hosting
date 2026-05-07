@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: llm-chat-api
+    runtime: python
+    region: oregon       # closest free-tier region
+    plan: free
+
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+
+    healthCheckPath: /health
+
+    envVars:
+      - key: HF_REPO
+        value: Qwen/Qwen1.5-0.5B-Chat-GGUF
+      - key: HF_FILENAME
+        value: qwen1_5-0_5b-chat-q4_k_m.gguf
+      - key: MODEL_PATH
+        value: model.gguf
+      # Add HF_TOKEN here (as a secret) if you need private model access
+      # - key: HF_TOKEN
+      #   sync: false

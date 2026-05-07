@@ -1,3 +1,18 @@
-model.gguf
+# Never commit model weights to git
+*.gguf
+
+# Python
 venv/
+.venv/
 __pycache__/
+*.pyc
+*.pyo
+.env
+.env.*
+
+# Hugging Face cache
+.cache/
+
+# Editor
+.vscode/
+.idea/
