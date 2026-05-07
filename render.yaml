@@ -5,9 +5,7 @@ services:
     region: oregon       # closest free-tier region
     plan: free
 
-    # `llama-cpp-python` CPU wheels are often linked against musl.
-    # Install musl runtime in the build container so `libllama.so` can load.
-    buildCommand: apt-get update && apt-get install -y musl-tools && pip install --no-cache-dir --prefer-binary -r requirements.txt
+    buildCommand: pip install --no-cache-dir --prefer-binary -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
 
     healthCheckPath: /health
