@@ -11,6 +11,10 @@ services:
     healthCheckPath: /health
 
     envVars:
+      # Render Blueprint does not reliably pick up `runtime.txt` in all cases.
+      # Pin to a Python version that has prebuilt wheels (avoids Rust builds).
+      - key: PYTHON_VERSION
+        value: "3.10.13"
       - key: HF_REPO
         value: Qwen/Qwen1.5-0.5B-Chat-GGUF
       - key: HF_FILENAME
