@@ -2,5 +2,8 @@ fastapi==0.111.0
 uvicorn[standard]==0.29.0
 huggingface_hub==0.23.2
 pydantic==2.7.1
-# Pre-built Linux x86_64 wheel — avoids C++ compile step on Render
-llama-cpp-python==0.2.90 --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+# Pre-built Linux wheels — avoids C++ compile step on Render
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+llama-cpp-python==0.2.90
+# (intentionally blank line at end of file)
+#
